@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import {IUserInfo} from '../../../reduxStore/reducers/homeReducer/interfaces';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {UserCard} from '../../molecules/userCard';
 import {useAppSelector} from '../../../reduxStore/hooks';
@@ -7,25 +6,23 @@ import {shallowEqual} from 'react-redux';
 import {screenDimension} from '../../../utils/dimensionUtils';
 
 export const UserCardList: FC<any> = () => {
-  let userById = useAppSelector(state => {
-    const usersData = state.homeReducer.users;
+  let userIds = useAppSelector(state => {
+    const userKeys = Object.keys(state.homeReducer.users);
 
-    return usersData;
+    return userKeys;
   }, shallowEqual);
 
-  let users = Object.values(userById);
-
-  const renderUserInfo = ({item}: {item: IUserInfo}) => {
-    return <UserCard userId={item.id as string} />;
+  const renderUserInfo = ({item}: {item: string}) => {
+    return <UserCard userId={item} />;
   };
 
-  const getKeyForExtractor = (item: IUserInfo, index: number) =>
-    `${item.id || index}`;
+  const getKeyForExtractor = (item: string, index: number) =>
+    `${item || index}`;
 
   return (
     <View style={styles.userList}>
       <FlatList
-        data={users}
+        data={userIds}
         renderItem={renderUserInfo}
         keyExtractor={getKeyForExtractor}
       />
