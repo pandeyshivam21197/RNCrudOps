@@ -7,11 +7,13 @@ import {shallowEqual} from 'react-redux';
 import {screenDimension} from '../../../utils/dimensionUtils';
 
 export const UserCardList: FC<any> = () => {
-  const users: IUserInfo[] = useAppSelector(state => {
-    const usersData = Object.values(state.homeReducer.users);
+  let userById = useAppSelector(state => {
+    const usersData = state.homeReducer.users;
 
     return usersData;
   }, shallowEqual);
+
+  let users = Object.values(userById);
 
   const renderUserInfo = ({item}: {item: IUserInfo}) => {
     return <UserCard userId={item.id as string} />;

@@ -43,10 +43,7 @@ export const homeReducerSlice = createSlice({
 
       const uniqueId = Math.random() * 100;
 
-      state.users = {
-        ...state.users,
-        [uniqueId]: {...state.userForAddOrUpdate, id: uniqueId},
-      };
+      state.users[uniqueId] = {...state.userForAddOrUpdate, id: uniqueId};
 
       state.userForAddOrUpdate = undefined;
       state.genderRadioButton = initialState.genderRadioButton;
