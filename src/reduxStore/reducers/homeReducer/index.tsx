@@ -56,7 +56,7 @@ export const homeReducerSlice = createSlice({
       const isOldUser = !!userDetails?.id;
 
       if (isOldUser) {
-        state.users[userDetails?.id as string] = {
+        state.users[userDetails?.id as number] = {
           ...userDetails,
         };
 

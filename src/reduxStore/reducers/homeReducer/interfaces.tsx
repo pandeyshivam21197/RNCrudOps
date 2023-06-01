@@ -5,7 +5,7 @@ export interface IUserInfo {
   surname?: string;
   gender?: string;
   info?: string;
-  id?: string;
+  id?: number;
 }
 
 export interface IHomeScreenState {
@@ -14,4 +14,4 @@ export interface IHomeScreenState {
   genderRadioButton: IRadioButton[];
 }
 
-export type IUsers = Record<string, IUserInfo>;
+export type IUsers = Record<number, IUserInfo>;

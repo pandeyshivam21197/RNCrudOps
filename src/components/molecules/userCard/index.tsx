@@ -7,7 +7,7 @@ import {StyleSheet, TouchableOpacity} from 'react-native';
 import {updateUserDetails} from '../../../reduxStore/reducers/homeReducer';
 
 interface IUserCard {
-  userId: string;
+  userId: number;
 }
 
 export const UserCard: FC<IUserCard> = ({userId}): React.ReactElement => {
