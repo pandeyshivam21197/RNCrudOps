@@ -56,7 +56,7 @@ export const AddUserDetailsForm: FC<any> = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.nameContainer}>
         <TextInput
           style={styles.inputBox}
