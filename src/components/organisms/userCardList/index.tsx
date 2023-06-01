@@ -13,10 +13,10 @@ export const UserCardList: FC<any> = () => {
   }, shallowEqual);
 
   const renderUserInfo = ({item}: {item: string}) => {
-    return <UserCard userId={item} />;
+    return <UserCard userId={Number(item)} />;
   };
 
-  const getKeyForExtractor = (item: string, index: number) =>
+  const getKeyForExtractor = (item: string, index: number): string =>
     `${item || index}`;
 
   return (
